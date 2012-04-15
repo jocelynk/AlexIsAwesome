@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ImageButton
+        android:id="@+id/exercise_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="14dp"
+        android:src="@drawable/running" />
+
+    <TextView
+        android:id="@+id/exercise_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/exercise_img"
+        android:textSize="36sp" />
+
+    <include layout="@layout/date" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/exercise_img"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/exercise_img"
+            android:layout_marginLeft="14dp"
+            android:text="Distance: "
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/distance"
+            android:paddingRight="5dp"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/mi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/distance"
+            android:layout_alignBottom="@+id/distance"
+            android:layout_toRightOf="@+id/exercise_img"
+            android:text="mi"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/exercise_img"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/value"
+            android:layout_below="@+id/value"
+            android:paddingLeft="15dp"
+            android:text="Time: "
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/hr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/value"
+            android:paddingRight="5dp"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="hr "
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/distance"
+            android:paddingRight="5dp"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="min "
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/sec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/distance"
+            android:paddingRight="5dp"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sec"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+</RelativeLayout>

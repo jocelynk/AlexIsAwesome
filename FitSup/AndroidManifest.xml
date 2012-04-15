@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.team03.fitsup"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="15" />
+
+    <application
+        android:debuggable="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:logo="@drawable/logo"
+        android:theme="@style/AppTheme" >
+        <activity android:name=".ui.WorkoutUI" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.WorkoutRoutineEdit"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="Add Workout"
+            android:windowSoftInputMode="stateVisible|adjustResize|adjustPan" />
+        <activity
+            android:name=".ui.WorkoutRoutineView"
+            android:label="@string/workout_routine_view_title" />
+        <activity
+            android:name=".ui.WorkoutExerciseEdit"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/workout_exercise_add_title" />
+        <activity
+            android:name=".ui.ExerciseRecordUI"
+            android:label="Exercise Calendar Log" 
+           android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.ExerciseRecordEdit"
+            android:label="Create/Record" />
+        <activity
+            android:name=".ui.RecordView"
+            android:label="View Record" />
+    </application>
+
+</manifest>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, MainActivity!</string>
+    <string name="app_name">FitSup</string>
+    <string name="no_workouts">You have no workouts.</string>
+    <string name="menu_insert_workout">Add Workout</string>
+    <string name="menu_view">View</string>
+    <string name="menu_edit">Edit</string>
+    <string name="menu_delete">Delete</string>
+    <string name="name">Name</string>
+    <string name="description">Description</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="menu_insert_exercise">Add Exercise</string>
+    <string name="no_exercises">You have no exercises.</string>
+    <string name="no_records">You have no exercise logs.</string>    
+    <string name="choose_category">Choose a Category.</string>
+    <string name="workout_routines">Workout Routines</string>
+    <string name="choose_exercise">2. Choose an Exercise.</string>
+    <string name="select_exercise_category">1. Select Exercise Category.</string>
+    <string name="menu_insert_record">Log Exercise</string>
+   
+    <!-- Activity titles -->
+    <string name="workout_routine_add_title">Add Workout</string>
+	<string name="workout_routine_edit_title">Edit Workout</string>
+	<string name="workout_routine_view_title">View Workout</string>
+	<string name="workout_exercise_add_title">Add Exercise</string>
+</resources>
