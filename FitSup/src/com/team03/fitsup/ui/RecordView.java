@@ -288,7 +288,6 @@ public class RecordView extends SherlockActivity {
 				mDateText.setText(date);
 				mNameText.setText(name);
 			}
-			records.close();
 			break;
 		case 4:
 		case 5:
@@ -319,7 +318,6 @@ public class RecordView extends SherlockActivity {
 				mNameText.setText(name);
 
 			}
-			records.close();
 			break;
 		case 7:
 			if (records.getCount() > 0) {
@@ -345,7 +343,6 @@ public class RecordView extends SherlockActivity {
 				mNameText.setText(name);
 
 			}
-			records.close();
 			break;
 		case 8:
 			if (records.getCount() > 0) {
@@ -365,7 +362,6 @@ public class RecordView extends SherlockActivity {
 				mDateText.setText(date);
 				mNameText.setText(name);
 			}
-			records.close();
 			break;
 		case 9:
 			if (records.getCount() > 0) {
@@ -412,7 +408,6 @@ public class RecordView extends SherlockActivity {
 				mDateText.setText(date);
 				mNameText.setText(name);
 			}
-			records.close();
 			break;
 		}
 
