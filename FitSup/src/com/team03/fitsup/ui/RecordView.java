@@ -1,5 +1,8 @@
 package com.team03.fitsup.ui;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -215,8 +218,8 @@ public class RecordView extends SherlockActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.delete_record:
-			mDbAdapter.deleteRecord(date, wreRowId);
-			finish();
+			showDialog(0);
+			
 			return true;
 		case R.id.add_record:
 			createRecord();
@@ -225,7 +228,28 @@ public class RecordView extends SherlockActivity {
 
 		return super.onOptionsItemSelected(item);
 	}
-	
+	protected Dialog onCreateDialog(int id) {
+		switch (id) {
+		case 0:
+			return new AlertDialog.Builder(this)
+					.setMessage("Are you sure you want to delete?")
+					.setPositiveButton("YES",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int whichButton) {
+									mDbAdapter.deleteRecord(date, wreRowId);
+									finish();
+								}
+							})
+					.setNegativeButton("NO",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int whichButton) {
+								}
+							}).create();
+		}
+		return null;
+	}
 	public void createRecord() {
 		Cursor exercise_id = mDbAdapter.fetchExercisebyWRE(wreRowId);
 		long e_id = exercise_id

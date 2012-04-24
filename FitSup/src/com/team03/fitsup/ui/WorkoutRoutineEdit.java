@@ -44,7 +44,7 @@ public class WorkoutRoutineEdit extends SherlockActivity {
 		mDescriptionText = (EditText) findViewById(R.id.description);
 
 		Button confirmButton = (Button) findViewById(R.id.confirm);
-		Button cancelButtton = (Button) findViewById(R.id.cancel);
+		Button cancelButton = (Button) findViewById(R.id.cancel);
 
 		mRowId = (savedInstanceState == null) ? null
 				: (Long) savedInstanceState
@@ -95,49 +95,12 @@ public class WorkoutRoutineEdit extends SherlockActivity {
 
 		});
 
-		cancelButtton.setOnClickListener(new View.OnClickListener() {
+		cancelButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				showDialog(0);
 			}
 		});
-		/*
-		 * cancelButtton.setOnClickListener(new View.OnClickListener() { public
-		 * void onClick(View v) { showDialog(0); } });
-		 */
-		/*
-		 * super.onCreate(savedInstanceState);
-		 * setContentView(R.layout.workouts_edit);
-		 * setTitle(R.string.edit_workout);
-		 * 
-		 * mNameText = (EditText) findViewById(R.id.name); mDescriptionText =
-		 * (EditText) findViewById(R.id.description);
-		 * 
-		 * Button confirmButton = (Button) findViewById(R.id.confirm);
-		 * 
-		 * mRowId = null; Bundle extras = getIntent().getExtras(); if (extras !=
-		 * null) { String name =
-		 * extras.getString(WorkoutRoutineTable.COLUMN_NAME); String description
-		 * = extras.getString(WorkoutRoutineTable.COLUMN_DESCRIPTION); mRowId =
-		 * extras.getLong(WorkoutRoutineTable.COLUMN_ID);
-		 * 
-		 * if (name != null) { mNameText.setText(name); } if (description !=
-		 * null) { mDescriptionText.setText(description); } }
-		 * 
-		 * confirmButton.setOnClickListener(new View.OnClickListener() {
-		 * 
-		 * public void onClick(View view) { Bundle bundle = new Bundle();
-		 * 
-		 * bundle.putString(WorkoutRoutineTable.COLUMN_NAME,
-		 * mNameText.getText().toString());
-		 * bundle.putString(WorkoutRoutineTable.COLUMN_DESCRIPTION,
-		 * mDescriptionText.getText().toString()); if (mRowId != null) {
-		 * bundle.putLong(WorkoutRoutineTable.COLUMN_ID, mRowId); }
-		 * 
-		 * Intent mIntent = new Intent(); mIntent.putExtras(bundle);
-		 * setResult(RESULT_OK, mIntent); finish(); }
-		 * 
-		 * });
-		 */
+		
 	}
 
 	@Override
