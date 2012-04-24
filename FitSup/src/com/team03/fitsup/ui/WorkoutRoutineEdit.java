@@ -27,6 +27,7 @@ public class WorkoutRoutineEdit extends SherlockActivity {
 	private EditText mNameText;
 	private EditText mDescriptionText;
 	private Long mRowId;
+	private Boolean saved = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -78,8 +79,18 @@ public class WorkoutRoutineEdit extends SherlockActivity {
 
 			public void onClick(View view) {
 				saveState();
-				setResult(RESULT_OK);
-				finish();
+
+				if(saved) {
+					setResult(RESULT_OK);
+					finish();
+				} else
+				{
+					Toast toast = Toast.makeText(getApplicationContext(), "Please fill in fields.", Toast.LENGTH_SHORT);
+					toast.show();
+				}
+				
+				
+				
 			}
 
 		});
@@ -205,11 +216,13 @@ public class WorkoutRoutineEdit extends SherlockActivity {
 					mRowId = id;
 				}
 				toast.show();
+				saved = true;
 			}
 		} else  {
 			if (!TextUtils.isEmpty(name)) {
 			mDbAdapter.updateWorkout(mRowId, name, description);
 			toast.show();
+			saved = true;
 			}
 
 		}

@@ -178,5 +178,6 @@ public class WorkoutExerciseEdit extends SherlockActivity {
 		int duration = Toast.LENGTH_SHORT;
 		Toast toast = Toast.makeText(context, text, duration);
 		toast.show();
+		
 	}
 }

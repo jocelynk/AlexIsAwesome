@@ -41,6 +41,7 @@ public class ExerciseRecordEdit extends SherlockActivity {
 	private Button confirmButton;
 	private Button cancelButton;
 	private Cursor c;
+	private boolean saved = false;
 
 	// for the date picker
 
@@ -139,8 +140,16 @@ public class ExerciseRecordEdit extends SherlockActivity {
 
 			public void onClick(View view) {
 				saveState();
-				setResult(RESULT_OK);
-				finish();
+				if (saved) {
+					setResult(RESULT_OK);
+					finish();
+				} else {
+					Toast.makeText(
+
+					getApplicationContext(), "Please fill in fields.",
+							Toast.LENGTH_LONG).show();
+
+				}
 			}
 
 		});
@@ -274,7 +283,7 @@ public class ExerciseRecordEdit extends SherlockActivity {
 		// Cursor cWeights = mDbAdapter.fetchAttribute("Weight");
 		// long weight_id = cTime.getLong(cTime
 		// .getColumnIndexOrThrow(AttributeTable.COLUMN_NAME));
-		
+
 		Context context = getApplicationContext();
 		CharSequence text = "Your Record has been saved.";
 		int duration = Toast.LENGTH_SHORT;
@@ -323,19 +332,20 @@ public class ExerciseRecordEdit extends SherlockActivity {
 					if (eRowId.intValue() == 1) {
 						mDbAdapter.updateRecord(date, savedTime, 1, wreRowId);
 						mDbAdapter.updateRecord(date, val, 2, wreRowId);
+						saved = true;
 						toast.show();
 
 					} else if (eRowId.intValue() == 2) {
 						mDbAdapter.updateRecord(date, savedTime, 3, wreRowId);
 						mDbAdapter.updateRecord(date, val, 4, wreRowId);
+						saved = true;
 						toast.show();
-
 
 					} else if (eRowId.intValue() == 3) {
 						mDbAdapter.updateRecord(date, savedTime, 5, wreRowId);
 						mDbAdapter.updateRecord(date, val, 6, wreRowId);
+						saved = true;
 						toast.show();
-
 
 					}
 				}
@@ -348,14 +358,14 @@ public class ExerciseRecordEdit extends SherlockActivity {
 						// distance
 						mDbAdapter.createRecord(date, val, 2, wreRowId);
 						toast.show();
-
+						saved = true;
 					} else if (eRowId.intValue() == 2) {
 						// time
 						mDbAdapter.createRecord(date, savedTime, 3, wreRowId);
 						// distance
 						mDbAdapter.createRecord(date, val, 4, wreRowId);
 						toast.show();
-
+						saved = true;
 
 					} else if (eRowId.intValue() == 3) {
 						// time
@@ -363,7 +373,7 @@ public class ExerciseRecordEdit extends SherlockActivity {
 						// distance
 						mDbAdapter.createRecord(date, val, 6, wreRowId);
 						toast.show();
-
+						saved = true;
 
 					}
 
@@ -403,20 +413,20 @@ public class ExerciseRecordEdit extends SherlockActivity {
 						mDbAdapter.updateRecord(date, rep, 8, wreRowId);
 						mDbAdapter.updateRecord(date, weight, 9, wreRowId);
 						toast.show();
-
+						saved = true;
 					} else if (eRowId.intValue() == 5) {
 						mDbAdapter.updateRecord(date, set, 10, wreRowId);
 						mDbAdapter.updateRecord(date, rep, 11, wreRowId);
 						mDbAdapter.updateRecord(date, weight, 12, wreRowId);
 						toast.show();
-
+						saved = true;
 
 					} else if (eRowId.intValue() == 6) {
 						mDbAdapter.updateRecord(date, set, 13, wreRowId);
 						mDbAdapter.updateRecord(date, rep, 14, wreRowId);
 						mDbAdapter.updateRecord(date, weight, 15, wreRowId);
 						toast.show();
-
+						saved = true;
 					}
 
 				}
@@ -427,20 +437,20 @@ public class ExerciseRecordEdit extends SherlockActivity {
 						mDbAdapter.createRecord(date, rep, 8, wreRowId);
 						mDbAdapter.createRecord(date, weight, 9, wreRowId);
 						toast.show();
-
+						saved = true;
 					} else if (eRowId.intValue() == 5) {
 						mDbAdapter.createRecord(date, set, 10, wreRowId);
 						mDbAdapter.createRecord(date, rep, 11, wreRowId);
 						mDbAdapter.createRecord(date, weight, 12, wreRowId);
 						toast.show();
-
+						saved = true;
 
 					} else if (eRowId.intValue() == 6) {
 						mDbAdapter.createRecord(date, set, 13, wreRowId);
 						mDbAdapter.createRecord(date, rep, 14, wreRowId);
 						mDbAdapter.createRecord(date, weight, 15, wreRowId);
 						toast.show();
-
+						saved = true;
 
 					}
 
@@ -465,7 +475,7 @@ public class ExerciseRecordEdit extends SherlockActivity {
 					mDbAdapter.updateRecord(date, set2, 16, wreRowId);
 					mDbAdapter.updateRecord(date, rep2, 17, wreRowId);
 					toast.show();
-
+					saved = true;
 				}
 
 			} else {
@@ -474,7 +484,7 @@ public class ExerciseRecordEdit extends SherlockActivity {
 					mDbAdapter.createRecord(date, set2, 16, wreRowId);
 					mDbAdapter.createRecord(date, rep2, 17, wreRowId);
 					toast.show();
-
+					saved = true;
 				}
 			}
 			break;
@@ -497,7 +507,7 @@ public class ExerciseRecordEdit extends SherlockActivity {
 				if (savedTime2 != -1) {
 					mDbAdapter.updateRecord(date, savedTime2, 1, wreRowId);
 					toast.show();
-
+					saved = true;
 				}
 			} else {
 				if (savedTime2 != -1) {
@@ -505,7 +515,7 @@ public class ExerciseRecordEdit extends SherlockActivity {
 					// time
 					mDbAdapter.createRecord(date, savedTime2, 18, wreRowId);
 					toast.show();
-
+					saved = true;
 				}
 			}
 			break;
@@ -546,7 +556,7 @@ public class ExerciseRecordEdit extends SherlockActivity {
 					mDbAdapter.updateRecord(date, set1, 20, wreRowId);
 					mDbAdapter.updateRecord(date, rep1, 21, wreRowId);
 					toast.show();
-
+					saved = true;
 				}
 			} else {
 				if (savedTime1 != -1 && set1 != -1 && rep1 != -1) {
@@ -557,13 +567,13 @@ public class ExerciseRecordEdit extends SherlockActivity {
 					// rep
 					mDbAdapter.createRecord(date, rep1, 21, wreRowId);
 					toast.show();
-
+					saved = true;
 				}
 			}
 			break;
 
 		}
-		
+
 	}
 
 }

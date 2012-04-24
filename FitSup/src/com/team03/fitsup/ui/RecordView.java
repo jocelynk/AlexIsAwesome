@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.actionbarsherlock.app.SherlockActivity;
@@ -36,6 +37,7 @@ public class RecordView extends SherlockActivity {
 	private TextView mRepText;
 	private TextView mWeightText;
 	private TextView mNameText;
+	private ImageView image;
 	// private Long mRowId;
 	private Long wreRowId;
 	private Long eRowId;
@@ -112,6 +114,7 @@ public class RecordView extends SherlockActivity {
 		case 3:
 			if (records.getCount() > 0) {
 				setContentView(R.layout.cardio_view);
+				image = (ImageView) findViewById(R.id.exercise_img);
 				mNameText = (TextView) findViewById(R.id.exercise_name);
 				mDateText = (TextView) findViewById(R.id.date);
 				mValueText = (TextView) findViewById(R.id.value);
@@ -129,6 +132,7 @@ public class RecordView extends SherlockActivity {
 		case 6:
 			if (records.getCount() > 0) {
 				setContentView(R.layout.strength);
+				image = (ImageView) findViewById(R.id.exercise_img);
 				mNameText = (TextView) findViewById(R.id.exercise_name);
 				mDateText = (TextView) findViewById(R.id.date);
 				mSetText = (TextView) findViewById(R.id.value);
@@ -144,6 +148,7 @@ public class RecordView extends SherlockActivity {
 		case 7:
 			if (records.getCount() > 0) {
 				setContentView(R.layout.jumping_jacks);
+				image = (ImageView) findViewById(R.id.exercise_img);
 				mNameText = (TextView) findViewById(R.id.exercise_name);
 				mDateText = (TextView) findViewById(R.id.date);
 				mSetText = (TextView) findViewById(R.id.value);
@@ -159,6 +164,7 @@ public class RecordView extends SherlockActivity {
 			Log.v(TAG, "in 8");
 			if (records.getCount() > 0) {
 				setContentView(R.layout.stretch);
+				image = (ImageView) findViewById(R.id.exercise_img);
 				mNameText = (TextView) findViewById(R.id.exercise_name);
 				mDateText = (TextView) findViewById(R.id.date);
 				mMinText = (TextView) findViewById(R.id.min);
@@ -172,6 +178,7 @@ public class RecordView extends SherlockActivity {
 		case 9:
 			if (records.getCount() > 0) {
 				setContentView(R.layout.jumprope);
+				image = (ImageView) findViewById(R.id.exercise_img);
 				mNameText = (TextView) findViewById(R.id.exercise_name);
 				mDateText = (TextView) findViewById(R.id.date);
 				mMinText = (TextView) findViewById(R.id.min);
@@ -228,6 +235,7 @@ public class RecordView extends SherlockActivity {
 		i.putExtra(RecordTable.COLUMN_WRKT_RTNE_E_ID, wreRowId);
 		i.putExtra(ExerciseTable.COLUMN_ID, e_id);
 		exercise_id.close();
+		finish();
 		startActivityForResult(i, ACTIVITY_CREATE);
 	}
 
@@ -287,6 +295,20 @@ public class RecordView extends SherlockActivity {
 				}
 				mDateText.setText(date);
 				mNameText.setText(name);
+				if(eRowId.intValue() == 1)
+				{
+					image.setImageResource(R.drawable.image_cardio_running);
+
+				} else if (eRowId.intValue() == 2)
+				{
+					image.setImageResource(R.drawable.image_cardio_swimming);
+
+				} else if(eRowId.intValue() == 3)
+				{
+					image.setImageResource(R.drawable.image_cardio_biking);
+
+				}
+					
 			}
 			break;
 		case 4:
@@ -316,6 +338,14 @@ public class RecordView extends SherlockActivity {
 				}
 				mDateText.setText(date);
 				mNameText.setText(name);
+				if(eRowId.intValue() == 4) {
+					image.setImageResource(R.drawable.image_st_shoulderpress);
+
+				} else if(eRowId.intValue() == 5 || eRowId.intValue() == 6)
+				{
+					image.setImageResource(R.drawable.image_st_bicepcurl);
+
+				}
 
 			}
 			break;
@@ -341,12 +371,12 @@ public class RecordView extends SherlockActivity {
 				}
 				mDateText.setText(date);
 				mNameText.setText(name);
+				image.setImageResource(R.drawable.image_warmup_jumpingjack);
 
 			}
 			break;
 		case 8:
 			if (records.getCount() > 0) {
-				Log.v(TAG, "in 888888");
 				long rowId4 = records.getLong(records
 						.getColumnIndexOrThrow(RecordTable.COLUMN_ID));
 				Cursor record4 = mDbAdapter.fetchAttributeOfRecord(rowId4);
@@ -361,6 +391,8 @@ public class RecordView extends SherlockActivity {
 				record4.close();
 				mDateText.setText(date);
 				mNameText.setText(name);
+				image.setImageResource(R.drawable.image_warmup_stretching);
+
 			}
 			break;
 		case 9:
@@ -407,6 +439,8 @@ public class RecordView extends SherlockActivity {
 				}
 				mDateText.setText(date);
 				mNameText.setText(name);
+				image.setImageResource(R.drawable.image_warmup_jumprope);
+
 			}
 			break;
 		}
