@@ -20,11 +20,10 @@
     <string name="choose_exercise">2. Choose an Exercise.</string>
     <string name="select_exercise_category">1. Select Exercise Category.</string>
     <string name="menu_insert_record">Log Exercise</string>
-   
-    <!-- Activity titles -->
     <string name="workout_routine_add_title">Add Workout</string>
 	<string name="workout_routine_edit_title">Edit Workout</string>
 	<string name="workout_routine_view_title">View Workout</string>
 	<string name="workout_exercise_add_title">Add Exercise</string>
 	<string name="menu_home">Home</string>
+	<string name="no_exercises">You have no exercises.</string>
 </resources>

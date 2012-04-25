@@ -196,13 +196,8 @@ public class ExerciseRecordEdit extends SherlockActivity {
 		} else
 		{
 			String [] temp = date.split("-");
-			for(int i = 0; i <temp.length; i++)
-			{
-				Log.v(TAG, "for loop: " + temp[i]);
-			}
 			mYear = Integer.parseInt(temp[2]);
 			mMonth = Integer.parseInt(temp[0])-1;
-			Log.v(TAG, "asdfadsfa "+mMonth);
 			mDay = Integer.parseInt(temp[1]);
 		}
 		
