@@ -30,6 +30,10 @@ public class RecordView extends SherlockActivity {
 
 	private static final int DELETE_ID = Menu.FIRST;
 
+	
+	public static final String LAUNCH_RECORD = "launch_record_from_view";
+	public static final String DATE_REQUEST = "date_request";
+	
 	private DatabaseAdapter mDbAdapter;
 	private TextView mDateText;
 	private TextView mValueText;
@@ -47,6 +51,8 @@ public class RecordView extends SherlockActivity {
 	private String date;
 	private String name;
 	private Boolean empty = false;
+
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -261,6 +267,8 @@ public class RecordView extends SherlockActivity {
 		Intent i = new Intent(this, ExerciseRecordEdit.class);
 		i.putExtra(RecordTable.COLUMN_WRKT_RTNE_E_ID, wreRowId);
 		i.putExtra(ExerciseTable.COLUMN_ID, e_id);
+		i.putExtra(LAUNCH_RECORD, DATE_REQUEST);
+		i.putExtra(RecordTable.COLUMN_DATE, date);
 		exercise_id.close();
 		finish();
 		startActivityForResult(i, ACTIVITY_CREATE);

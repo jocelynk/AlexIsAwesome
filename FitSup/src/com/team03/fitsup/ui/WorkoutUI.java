@@ -199,7 +199,7 @@ public class WorkoutUI extends SherlockListActivity {
 
 	public void onDestroy() {
 		Log.d(TAG, "Destroying View ...");
-		mDbAdapter.close();
+		//mDbAdapter.close();
 		super.onDestroy();
 	}
 

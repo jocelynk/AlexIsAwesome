@@ -53,7 +53,6 @@ public class ExerciseRecordUI extends SherlockActivity implements OnClickListene
 	
 	public static final String LAUNCH_RECORD = "launch_record";
 	public static final String CREATE_REQUEST = "create_request";
-	public static final String DATE_REQUEST = "date_request";
 
 	private static final int INSERT_ID = Menu.FIRST;
 
@@ -208,6 +207,7 @@ public class ExerciseRecordUI extends SherlockActivity implements OnClickListene
 		Intent i = new Intent(this, ExerciseRecordEdit.class);
 		i.putExtra(RecordTable.COLUMN_WRKT_RTNE_E_ID, wreRowId);
 		i.putExtra(ExerciseTable.COLUMN_ID, e_id);
+		i.putExtra(LAUNCH_RECORD, CREATE_REQUEST);
 		exercise_id.close();
 		startActivityForResult(i, ACTIVITY_CREATE);
 	}

@@ -5,6 +5,7 @@ import java.util.Calendar;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
@@ -38,6 +39,7 @@ public class ExerciseRecordEdit extends SherlockActivity {
 	private EditText mWeightText;
 	private Long wreRowId;
 	private Long eRowId;
+	private String date;
 	private Button confirmButton;
 	private Button cancelButton;
 	private Cursor c;
@@ -66,6 +68,7 @@ public class ExerciseRecordEdit extends SherlockActivity {
 
 		mDbAdapter = new DatabaseAdapter(getApplicationContext());
 		mDbAdapter.open();
+		
 		wreRowId = (savedInstanceState == null) ? null
 				: (Long) savedInstanceState
 						.getSerializable(RecordTable.COLUMN_WRKT_RTNE_E_ID);
@@ -82,6 +85,15 @@ public class ExerciseRecordEdit extends SherlockActivity {
 			Bundle extras = getIntent().getExtras();
 			eRowId = extras != null ? extras.getLong(ExerciseTable.COLUMN_ID)
 					: null;
+		}
+		
+		date = (savedInstanceState == null) ? null
+				: (String) savedInstanceState
+						.getSerializable(RecordTable.COLUMN_DATE);
+		if (date == null) {
+			Bundle extras = getIntent().getExtras();
+			date = extras != null ? extras.getString(RecordTable.COLUMN_DATE)
+					: "test";
 		}
 
 		Log.v(TAG, "Exercise id: " + eRowId);
@@ -169,14 +181,41 @@ public class ExerciseRecordEdit extends SherlockActivity {
 			}
 		});
 
-		// get the current date
-		final Calendar c = Calendar.getInstance();
-		mYear = c.get(Calendar.YEAR);
-		Log.v(TAG, "" + mYear);
-		mMonth = c.get(Calendar.MONTH);
-		Log.v(TAG, "" + mMonth);
-		mDay = c.get(Calendar.DAY_OF_MONTH);
-		Log.v(TAG, "" + mDay);
+		ComponentName activity = getCallingActivity();
+		String act = activity != null ? activity.getClassName(): "other view";
+		if(act.equals("com.team03.fitsup.ui.ExerciseRecordUI"))
+		{
+			String title = getIntent().getStringExtra(ExerciseRecordUI.LAUNCH_RECORD);
+			final Calendar c = Calendar.getInstance();
+			mYear = c.get(Calendar.YEAR);
+			Log.v(TAG, "" + mYear);
+			mMonth = c.get(Calendar.MONTH);
+			Log.v(TAG, "" + mMonth);
+			mDay = c.get(Calendar.DAY_OF_MONTH);
+			Log.v(TAG, "" + mDay);
+		} else
+		{
+			String [] temp = date.split("-");
+			for(int i = 0; i <temp.length; i++)
+			{
+				Log.v(TAG, "for loop: " + temp[i]);
+			}
+			mYear = Integer.parseInt(temp[2]);
+			mMonth = Integer.parseInt(temp[0])-1;
+			Log.v(TAG, "asdfadsfa "+mMonth);
+			mDay = Integer.parseInt(temp[1]);
+		}
+		
+		
+		
+//		// get the current date
+//		final Calendar c = Calendar.getInstance();
+//		mYear = c.get(Calendar.YEAR);
+//		Log.v(TAG, "" + mYear);
+//		mMonth = c.get(Calendar.MONTH);
+//		Log.v(TAG, "" + mMonth);
+//		mDay = c.get(Calendar.DAY_OF_MONTH);
+//		Log.v(TAG, "" + mDay);
 
 		// display the current date
 		updateDisplay();
