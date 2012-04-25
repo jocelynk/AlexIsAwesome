@@ -50,6 +50,10 @@ public class ExerciseRecordUI extends SherlockActivity implements OnClickListene
 	private static final int ACTIVITY_CREATE = 0;
 	private static final int ACTIVITY_VIEW = 1;
 	private static final int ACTIVITY_EDIT = 2;
+	
+	public static final String LAUNCH_RECORD = "launch_record";
+	public static final String CREATE_REQUEST = "create_request";
+	public static final String DATE_REQUEST = "date_request";
 
 	private static final int INSERT_ID = Menu.FIRST;
 
