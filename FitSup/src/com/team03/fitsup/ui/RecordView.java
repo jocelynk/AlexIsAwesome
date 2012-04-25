@@ -224,6 +224,9 @@ public class RecordView extends SherlockActivity {
 		case R.id.add_record:
 			createRecord();
 			return true;
+		case R.id.home:
+			startActivity(new Intent(this, WorkoutUI.class));
+			return true;
 		}
 
 		return super.onOptionsItemSelected(item);

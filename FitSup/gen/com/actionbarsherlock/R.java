@@ -819,21 +819,19 @@ containing a value of this type.
         public static final int ic_menu_add=0x7f02006e;
         public static final int ic_menu_add_pre=0x7f02006f;
         public static final int ic_menu_delete=0x7f020070;
-        public static final int ic_tab_artists_grey=0x7f020071;
-        public static final int ic_tab_artists_white=0x7f020072;
-        public static final int icon=0x7f020073;
-        public static final int image_cardio_biking=0x7f020074;
-        public static final int image_cardio_running=0x7f020075;
-        public static final int image_cardio_swimming=0x7f020076;
-        public static final int image_st_bicepcurl=0x7f020077;
-        public static final int image_st_running=0x7f020078;
-        public static final int image_st_shoulderpress=0x7f020079;
-        public static final int image_warmup_jumpingjack=0x7f02007a;
-        public static final int image_warmup_jumprope=0x7f02007b;
-        public static final int image_warmup_stretching=0x7f02007c;
-        public static final int logo=0x7f02007d;
-        public static final int rounded_corners_white=0x7f02007e;
-        public static final int tabs_workouts=0x7f02007f;
+        public static final int ic_menu_home=0x7f020071;
+        public static final int icon=0x7f020072;
+        public static final int image_cardio_biking=0x7f020073;
+        public static final int image_cardio_running=0x7f020074;
+        public static final int image_cardio_swimming=0x7f020075;
+        public static final int image_st_bicepcurl=0x7f020076;
+        public static final int image_st_running=0x7f020077;
+        public static final int image_st_shoulderpress=0x7f020078;
+        public static final int image_warmup_jumpingjack=0x7f020079;
+        public static final int image_warmup_jumprope=0x7f02007a;
+        public static final int image_warmup_stretching=0x7f02007b;
+        public static final int logo=0x7f02007c;
+        public static final int rounded_corners_white=0x7f02007d;
     }
     public static final class id {
         public static final int abs__action_bar=0x7f040022;
@@ -865,9 +863,9 @@ containing a value of this type.
         public static final int abs__title=0x7f04001b;
         public static final int abs__titleDivider=0x7f04001c;
         public static final int abs__up=0x7f04000b;
-        public static final int add_exercise=0x7f040050;
-        public static final int add_record=0x7f04004a;
-        public static final int add_workout=0x7f04004f;
+        public static final int add_exercise=0x7f04004e;
+        public static final int add_record=0x7f04004b;
+        public static final int add_workout=0x7f04004d;
         public static final int calendar=0x7f040046;
         public static final int calendar_day_gridcell=0x7f04002b;
         public static final int calendarheader=0x7f040045;
@@ -876,21 +874,21 @@ containing a value of this type.
         public static final int currentMonth=0x7f040043;
         public static final int date=0x7f040037;
         public static final int dateDisplay=0x7f04003c;
-        public static final int delete_record=0x7f04004e;
+        public static final int delete_record=0x7f04004c;
         public static final int description=0x7f040048;
         public static final int disableHome=0x7f040009;
         public static final int distance=0x7f040030;
         public static final int exercise_img=0x7f04002e;
         public static final int exercise_name=0x7f04002f;
+        public static final int home=0x7f04004a;
         public static final int homeAsUp=0x7f040006;
         public static final int hr=0x7f040034;
         public static final int imageButton1=0x7f040040;
         public static final int intMonth=0x7f04002c;
         public static final int listMode=0x7f040002;
         public static final int listview=0x7f040049;
-        public static final int menu_delete=0x7f04004d;
-        public static final int menu_edit=0x7f04004c;
-        public static final int menu_view=0x7f04004b;
+        public static final int menu_delete=0x7f040050;
+        public static final int menu_edit=0x7f04004f;
         public static final int mi=0x7f040032;
         public static final int min=0x7f040035;
         public static final int name=0x7f040047;
@@ -970,13 +968,12 @@ containing a value of this type.
     }
     public static final class menu {
         public static final int exercise_ui_options_menu=0x7f0b0000;
-        public static final int record_context_menu=0x7f0b0001;
-        public static final int record_delete_options_menu=0x7f0b0002;
-        public static final int record_view_options_menu=0x7f0b0003;
-        public static final int workout_index_options_menu=0x7f0b0004;
-        public static final int workout_view_options_menu=0x7f0b0005;
-        public static final int workoutroutine_context_menu=0x7f0b0006;
-        public static final int wr_exercise_context_menu=0x7f0b0007;
+        public static final int record_delete_options_menu=0x7f0b0001;
+        public static final int record_view_options_menu=0x7f0b0002;
+        public static final int workout_index_options_menu=0x7f0b0003;
+        public static final int workout_view_options_menu=0x7f0b0004;
+        public static final int workoutroutine_context_menu=0x7f0b0005;
+        public static final int wr_exercise_context_menu=0x7f0b0006;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1018,6 +1015,7 @@ containing a value of this type.
         public static final int hello=0x7f09000a;
         public static final int menu_delete=0x7f090010;
         public static final int menu_edit=0x7f09000f;
+        public static final int menu_home=0x7f090021;
         public static final int menu_insert_exercise=0x7f090015;
         public static final int menu_insert_record=0x7f09001c;
         public static final int menu_insert_workout=0x7f09000d;

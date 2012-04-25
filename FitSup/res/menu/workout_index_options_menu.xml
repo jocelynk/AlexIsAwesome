@@ -3,5 +3,5 @@
 	<item android:id="@+id/add_workout" 
    		  android:title="@string/menu_insert_workout"
           android:showAsAction="ifRoom|withText" 
-          android:icon="@drawable/ic_menu_add_pre"/>
+          android:icon="@drawable/ic_menu_add_pre"/>	
 </menu>

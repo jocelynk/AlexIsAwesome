@@ -129,6 +129,9 @@ public class WorkoutRoutineView extends SherlockListActivity {
 		case R.id.add_exercise:
 			createWorkoutExercise();
 			return true;
+		case R.id.home:
+			startActivity(new Intent(this, WorkoutUI.class));
+			return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}
