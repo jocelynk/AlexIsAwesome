@@ -185,7 +185,7 @@ public class ExerciseRecordEdit extends SherlockActivity {
 		String act = activity != null ? activity.getClassName(): "other view";
 		if(act.equals("com.team03.fitsup.ui.ExerciseRecordUI"))
 		{
-			String title = getIntent().getStringExtra(ExerciseRecordUI.LAUNCH_RECORD);
+			//get today's date
 			final Calendar c = Calendar.getInstance();
 			mYear = c.get(Calendar.YEAR);
 			Log.v(TAG, "" + mYear);
@@ -201,16 +201,6 @@ public class ExerciseRecordEdit extends SherlockActivity {
 			mDay = Integer.parseInt(temp[1]);
 		}
 		
-		
-		
-//		// get the current date
-//		final Calendar c = Calendar.getInstance();
-//		mYear = c.get(Calendar.YEAR);
-//		Log.v(TAG, "" + mYear);
-//		mMonth = c.get(Calendar.MONTH);
-//		Log.v(TAG, "" + mMonth);
-//		mDay = c.get(Calendar.DAY_OF_MONTH);
-//		Log.v(TAG, "" + mDay);
 
 		// display the current date
 		updateDisplay();
