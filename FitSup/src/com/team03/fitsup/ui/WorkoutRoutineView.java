@@ -178,11 +178,11 @@ public class WorkoutRoutineView extends SherlockListActivity {
 		long e_id = exercise_id
 				.getLong(exercise_id
 						.getColumnIndexOrThrow(WorkoutRoutineExerciseTable.COLUMN_EXERCISE_ID));
-
 		Intent i = new Intent(this, ExerciseRecordUI.class);
 		i.putExtra(WorkoutRoutineExerciseTable.COLUMN_ID, id);
 		i.putExtra(ExerciseTable.COLUMN_NAME, name);
 		i.putExtra(WorkoutRoutineExerciseTable.COLUMN_EXERCISE_ID, e_id);
+		exercise_id.close();
 		startActivityForResult(i, ACTIVITY_VIEW);
 	}
 

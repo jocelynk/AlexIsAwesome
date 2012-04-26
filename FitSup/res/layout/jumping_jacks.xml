@@ -21,11 +21,13 @@
     <include layout="@layout/date" />
     
     <LinearLayout
+        android:id="@+id/Linear2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/exercise_img"
-        android:layout_marginTop="5dp"
         android:orientation="horizontal" >
 
         <TextView
@@ -34,7 +36,6 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/value"
             android:layout_below="@+id/value"
-            android:paddingLeft="5dp"
             android:text="Sets: "
             android:textSize="24sp" />
 
@@ -56,6 +57,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/value2"
+            android:textSize="24sp" />
+    </LinearLayout>
+    
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/Linear2"
+        android:layout_marginLeft="15dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description: "
+            android:textSize="24sp" />
+        
+         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textSize="24sp" />
     </LinearLayout>
 

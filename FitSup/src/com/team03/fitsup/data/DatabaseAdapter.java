@@ -71,23 +71,26 @@ public class DatabaseAdapter {
 	//
 	// }
 	public long createRecord(String date, double value, long exercise_attr_id,
-			long wr_e_id) {
+			long wr_e_id, String description) {
 		ContentValues initialValues = new ContentValues();
 		initialValues.put(RecordTable.COLUMN_DATE, date);
 		initialValues.put(RecordTable.COLUMN_VALUE, value);
 		initialValues.put(RecordTable.COLUMN_E_ATTR_ID, exercise_attr_id);
 		initialValues.put(RecordTable.COLUMN_WRKT_RTNE_E_ID, wr_e_id);
+		initialValues.put(RecordTable.COLUMN_DESCRIPTION, description);
+
 
 		return mDb.insert(RecordTable.TABLE_RECORD, null, initialValues);
 	}
 
 	public boolean updateRecord(String date, double value,
-			long exercise_attr_id, long wr_e_id) {
+			long exercise_attr_id, long wr_e_id, String description) {
 		ContentValues args = new ContentValues();
 		args.put(RecordTable.COLUMN_DATE, date);
 		args.put(RecordTable.COLUMN_VALUE, value);
 		args.put(RecordTable.COLUMN_E_ATTR_ID, exercise_attr_id);
 		args.put(RecordTable.COLUMN_WRKT_RTNE_E_ID, wr_e_id);
+		args.put(RecordTable.COLUMN_DESCRIPTION, description);
 
 		return mDb.update(
 				RecordTable.TABLE_RECORD,
@@ -153,7 +156,7 @@ public class DatabaseAdapter {
 	public Cursor fetchAllRecordAttrByDate(String date, long wreRowId) {
 
 		return mDb.query(RecordTable.TABLE_RECORD, new String[] {
-				RecordTable.COLUMN_ID, RecordTable.COLUMN_VALUE },
+				RecordTable.COLUMN_ID, RecordTable.COLUMN_VALUE, RecordTable.COLUMN_DESCRIPTION },
 				RecordTable.COLUMN_WRKT_RTNE_E_ID + " = ? AND "
 						+ RecordTable.COLUMN_DATE + " = ? ", new String[] {
 						String.valueOf(wreRowId), date }, null, null, null);

@@ -21,6 +21,7 @@
     <include layout="@layout/date" />
 
     <LinearLayout
+        android:id="@+id/Linear1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -31,8 +32,6 @@
             android:id="@+id/distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/exercise_img"
             android:layout_marginLeft="14dp"
             android:text="Distance: "
             android:textSize="24sp" />
@@ -41,7 +40,6 @@
             android:id="@+id/value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/distance"
             android:paddingRight="5dp"
             android:textSize="24sp" />
 
@@ -49,14 +47,12 @@
             android:id="@+id/mi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/distance"
-            android:layout_alignBottom="@+id/distance"
-            android:layout_toRightOf="@+id/exercise_img"
             android:text="mi"
             android:textSize="24sp" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/Linear2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -68,8 +64,6 @@
             android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/value"
-            android:layout_below="@+id/value"
             android:paddingLeft="15dp"
             android:text="Time: "
             android:textSize="24sp" />
@@ -78,7 +72,6 @@
             android:id="@+id/hr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/value"
             android:paddingRight="5dp"
             android:textSize="24sp" />
 
@@ -93,7 +86,6 @@
             android:id="@+id/min"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/distance"
             android:paddingRight="5dp"
             android:textSize="24sp" />
 
@@ -108,7 +100,6 @@
             android:id="@+id/sec"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/distance"
             android:paddingRight="5dp"
             android:textSize="24sp" />
 
@@ -116,6 +107,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="sec"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/Linear2"
+        android:layout_marginLeft="15dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description: "
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textSize="24sp" />
     </LinearLayout>
 

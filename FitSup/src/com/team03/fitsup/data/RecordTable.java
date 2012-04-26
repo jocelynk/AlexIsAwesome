@@ -11,6 +11,7 @@ public class RecordTable {
 	public static final String COLUMN_ID = "_id";
 	public static final String COLUMN_WRKT_RTNE_E_ID = "workout_exercise_id";
 	public static final String COLUMN_E_ATTR_ID = "exercise_attribute_id";
+	public static final String COLUMN_DESCRIPTION = "description";
 	public static final String COLUMN_DATE = "date";
 	public static final String COLUMN_VALUE = "value";
 	
@@ -21,6 +22,7 @@ public class RecordTable {
 		+ COLUMN_ID + " integer primary key autoincrement, "
 		+ COLUMN_DATE + " text not null, "
 		+ COLUMN_VALUE + " double not null, "
+		+ COLUMN_DESCRIPTION + " text null, "
 		+ COLUMN_WRKT_RTNE_E_ID + " integer not null REFERENCES " 
 		+ WorkoutRoutineExerciseTable.TABLE_WORKOUTROUTINE_EXERCISE 
 		+ "("+ WorkoutRoutineExerciseTable.COLUMN_ID + "), "

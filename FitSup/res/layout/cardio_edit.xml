@@ -63,11 +63,19 @@
                 android:text="Time"
                 android:textSize="20sp" />
 
+             <EditText
+                android:id="@+id/hr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:hint="hr"
+                android:inputType="number"
+                android:maxLength="9" />
+            
             <EditText
                 android:id="@+id/min"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
                 android:hint="min"
                 android:inputType="number"
                 android:maxLength="9" />
@@ -90,45 +98,20 @@
             android:orientation="horizontal" >
 
             <TextView
+                android:id="@+id/distance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Set"
+                android:text="Distance"
                 android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
-                android:hint="count"
-                android:inputType="number" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_weight="1"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Reps"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/value2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:hint="count"
-                android:inputType="number"
-                android:textSize="20sp" >
-
-                <requestFocus />
-            </EditText>
+                android:hint="mi"
+                android:inputType="numberDecimal"
+                android:maxLength="4" />
         </LinearLayout>
 
         <EditText
@@ -145,7 +128,7 @@
             android:maxLength="50"
             android:scrollbars="vertical" />
 
-         <LinearLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"

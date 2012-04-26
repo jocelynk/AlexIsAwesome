@@ -44,6 +44,7 @@ public class RecordView extends SherlockActivity {
 	private TextView mRepText;
 	private TextView mWeightText;
 	private TextView mNameText;
+	private TextView mDescription;
 	private ImageView image;
 	// private Long mRowId;
 	private Long wreRowId;
@@ -130,6 +131,7 @@ public class RecordView extends SherlockActivity {
 				mHrText = (TextView) findViewById(R.id.hr);
 				mMinText = (TextView) findViewById(R.id.min);
 				mSecText = (TextView) findViewById(R.id.sec);
+				mDescription = (TextView) findViewById(R.id.description);
 			} else {
 				setContentView(R.layout.no_records);
 				empty = true;
@@ -147,6 +149,8 @@ public class RecordView extends SherlockActivity {
 				mSetText = (TextView) findViewById(R.id.value);
 				mRepText = (TextView) findViewById(R.id.value2);
 				mWeightText = (TextView) findViewById(R.id.value3);
+				mDescription = (TextView) findViewById(R.id.description);
+
 			} else {
 				setContentView(R.layout.no_records);
 				empty = true;
@@ -162,6 +166,8 @@ public class RecordView extends SherlockActivity {
 				mDateText = (TextView) findViewById(R.id.date);
 				mSetText = (TextView) findViewById(R.id.value);
 				mRepText = (TextView) findViewById(R.id.value2);
+				mDescription = (TextView) findViewById(R.id.description);
+
 			} else {
 				setContentView(R.layout.no_records);
 				empty = true;
@@ -178,6 +184,8 @@ public class RecordView extends SherlockActivity {
 				mDateText = (TextView) findViewById(R.id.date);
 				mMinText = (TextView) findViewById(R.id.min);
 				mSecText = (TextView) findViewById(R.id.sec);
+				mDescription = (TextView) findViewById(R.id.description);
+
 			} else {
 				setContentView(R.layout.no_records);
 				empty = true;
@@ -194,6 +202,8 @@ public class RecordView extends SherlockActivity {
 				mSecText = (TextView) findViewById(R.id.sec);
 				mSetText = (TextView) findViewById(R.id.value);
 				mRepText = (TextView) findViewById(R.id.value2);
+				mDescription = (TextView) findViewById(R.id.description);
+
 			} else {
 				setContentView(R.layout.no_records);
 				empty = true;
@@ -326,6 +336,14 @@ public class RecordView extends SherlockActivity {
 										.getColumnIndexOrThrow(RecordTable.COLUMN_VALUE)));
 						record.close();
 					}
+					
+					String description = records.getString(records
+							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
+					if(description != null)
+					{
+						mDescription.setText(records.getString(records
+							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
+					}
 					records.moveToNext();
 				}
 				mDateText.setText(date);
@@ -369,6 +387,13 @@ public class RecordView extends SherlockActivity {
 						mWeightText.setText(String.valueOf(value1));
 						record1.close();
 					}
+					String description2 = records.getString(records
+							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
+					if(description2 != null)
+					{
+						mDescription.setText(records.getString(records
+							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
+					}
 					records.moveToNext();
 				}
 				mDateText.setText(date);
@@ -402,6 +427,13 @@ public class RecordView extends SherlockActivity {
 						mRepText.setText(String.valueOf(value3));
 						record3.close();
 					}
+					String description3 = records.getString(records
+							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
+					if(description3 != null)
+					{
+						mDescription.setText(records.getString(records
+							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
+					}
 					records.moveToNext();
 				}
 				mDateText.setText(date);
@@ -427,7 +459,13 @@ public class RecordView extends SherlockActivity {
 				mDateText.setText(date);
 				mNameText.setText(name);
 				image.setImageResource(R.drawable.image_warmup_stretching);
-
+				String description4 = records.getString(records
+						.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
+				if(description4 != null)
+				{
+					mDescription.setText(records.getString(records
+						.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
+				}
 			}
 			break;
 		case 9:
@@ -469,6 +507,13 @@ public class RecordView extends SherlockActivity {
 										.getColumnIndexOrThrow(RecordTable.COLUMN_VALUE));
 						mRepText.setText(String.valueOf(value2));
 						record2.close();
+					}
+					String description5 = records.getString(records
+							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
+					if(description5 != null)
+					{
+						mDescription.setText(records.getString(records
+							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
 					}
 					records.moveToNext();
 				}
