@@ -15,7 +15,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
             android:layout_weight="1"
-            android:text="Enter in Record"
+            android:text="@string/enter_record"
             android:textSize="25sp" />
 
         <LinearLayout
@@ -29,7 +29,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Date"
+                android:text="@string/date"
                 android:textSize="20sp" />
 
             <Button
@@ -38,8 +38,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:text="Change the date"
-                android:textSize="10sp" />
+                android:text="@string/change_date"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/dateDisplay"
@@ -60,7 +60,7 @@
                 android:id="@+id/name1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Time"
+                android:text="@string/time"
                 android:textSize="20sp" />
 
             <EditText
@@ -68,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:hint="min"
+                android:hint="@string/min"
                 android:inputType="number"
                 android:maxLength="9" />
 
@@ -76,10 +76,19 @@
                 android:id="@+id/sec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="sec"
+                android:hint="@string/sec"
                 android:inputType="number"
                 android:maxLength="9" />
         </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/description"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/description"
@@ -89,13 +98,13 @@
             android:layout_marginRight="15dp"
             android:layout_marginTop="15dp"
             android:layout_weight="1"
-            android:hint="Description"
+            android:hint="@string/description"
             android:inputType="textMultiLine"
             android:lines="3"
             android:maxLength="50"
             android:scrollbars="vertical" />
 
-         <LinearLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -107,7 +116,7 @@
                 android:id="@+id/cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cancel" />
+                android:text="@string/cancel" />
 
             <Button
                 android:id="@+id/confirm"

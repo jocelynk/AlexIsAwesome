@@ -323,7 +323,7 @@ public class ExerciseRecordEdit extends SherlockActivity {
 			String minute = mMinuteText.getText().toString();
 			String second = mSecondText.getText().toString();
 			String value = mValueText.getText().toString(); // distance
-			String description = mDescription.getText().toString();
+			String des = mDescription.getText().toString().trim();
 
 			double hr = !TextUtils.isEmpty(hour) ? Double.parseDouble(hour) : 0;
 			double min = !TextUtils.isEmpty(minute) ? Double
@@ -335,6 +335,7 @@ public class ExerciseRecordEdit extends SherlockActivity {
 					: ((hr * 60.0) + min + (sec / 60.0));
 			double val = !TextUtils.isEmpty(value) ? Double.parseDouble(value)
 					: -1;
+			String description = TextUtils.isEmpty(des) ? null : des;
 			// time
 			if (eRowId.intValue() == 1) {
 				c = mDbAdapter.fetchRecord(date, 1, wreRowId);
@@ -345,7 +346,7 @@ public class ExerciseRecordEdit extends SherlockActivity {
 				c = mDbAdapter.fetchRecord(date, 5, wreRowId);
 
 			}
-			//startManagingCursor(c);???
+			// startManagingCursor(c);???
 
 			// Cursor a = mDbAdapter.fetchAttribute("Time");
 			// long a_id =
@@ -359,19 +360,22 @@ public class ExerciseRecordEdit extends SherlockActivity {
 			if (c != null && c.getCount() > 0) {
 				if (savedTime != -1 && val != -1) {
 					if (eRowId.intValue() == 1) {
-						mDbAdapter.updateRecord(date, savedTime, 1, wreRowId, description);
+						mDbAdapter.updateRecord(date, savedTime, 1, wreRowId,
+								description);
 						mDbAdapter.updateRecord(date, val, 2, wreRowId, null);
 						saved = true;
 						toast.show();
 
 					} else if (eRowId.intValue() == 2) {
-						mDbAdapter.updateRecord(date, savedTime, 3, wreRowId, description);
+						mDbAdapter.updateRecord(date, savedTime, 3, wreRowId,
+								description);
 						mDbAdapter.updateRecord(date, val, 4, wreRowId, null);
 						saved = true;
 						toast.show();
 
 					} else if (eRowId.intValue() == 3) {
-						mDbAdapter.updateRecord(date, savedTime, 5, wreRowId, description);
+						mDbAdapter.updateRecord(date, savedTime, 5, wreRowId,
+								description);
 						mDbAdapter.updateRecord(date, val, 6, wreRowId, null);
 						saved = true;
 						toast.show();
@@ -383,14 +387,16 @@ public class ExerciseRecordEdit extends SherlockActivity {
 
 					if (eRowId.intValue() == 1) {
 						// time
-						mDbAdapter.createRecord(date, savedTime, 1, wreRowId, description);
+						mDbAdapter.createRecord(date, savedTime, 1, wreRowId,
+								description);
 						// distance
 						mDbAdapter.createRecord(date, val, 2, wreRowId, null);
 						toast.show();
 						saved = true;
 					} else if (eRowId.intValue() == 2) {
 						// time
-						mDbAdapter.createRecord(date, savedTime, 3, wreRowId, description);
+						mDbAdapter.createRecord(date, savedTime, 3, wreRowId,
+								description);
 						// distance
 						mDbAdapter.createRecord(date, val, 4, wreRowId, null);
 						toast.show();
@@ -398,7 +404,8 @@ public class ExerciseRecordEdit extends SherlockActivity {
 
 					} else if (eRowId.intValue() == 3) {
 						// time
-						mDbAdapter.createRecord(date, savedTime, 5, wreRowId, description);
+						mDbAdapter.createRecord(date, savedTime, 5, wreRowId,
+								description);
 						// distance
 						mDbAdapter.createRecord(date, val, 6, wreRowId, null);
 						toast.show();
@@ -408,6 +415,7 @@ public class ExerciseRecordEdit extends SherlockActivity {
 
 				}
 			}
+			c.close();
 			break;
 
 		case 4:
@@ -416,8 +424,8 @@ public class ExerciseRecordEdit extends SherlockActivity {
 			String setString = mSetText.getText().toString();
 			String repString = mRepText.getText().toString();
 			String weightString = mWeightText.getText().toString();
-			String description2 = mDescription.getText().toString();
-			
+			String des2 = mDescription.getText().toString().trim();
+
 			double set = !TextUtils.isEmpty(setString) ? Double
 					.parseDouble(setString) : -1;
 			double rep = !TextUtils.isEmpty(repString) ? Double
@@ -426,7 +434,7 @@ public class ExerciseRecordEdit extends SherlockActivity {
 					.parseDouble(weightString) : -1;
 			// create Query that will query for the name of the attribute
 			// and take in ExerciseId to replace in createRecord() method
-
+			String description2 = TextUtils.isEmpty(des2) ? null : des2;
 			if (eRowId.intValue() == 4) {
 				c = mDbAdapter.fetchRecord(date, 7, wreRowId);
 			} else if (eRowId.intValue() == 5) {
@@ -440,22 +448,28 @@ public class ExerciseRecordEdit extends SherlockActivity {
 			if (c != null && c.getCount() > 0) {
 				if (set != -1 && rep != -1 && weight != -1) {
 					if (eRowId.intValue() == 4) {
-						mDbAdapter.updateRecord(date, set, 7, wreRowId, description2);
+						mDbAdapter.updateRecord(date, set, 7, wreRowId,
+								description2);
 						mDbAdapter.updateRecord(date, rep, 8, wreRowId, null);
-						mDbAdapter.updateRecord(date, weight, 9, wreRowId, null);
+						mDbAdapter
+								.updateRecord(date, weight, 9, wreRowId, null);
 						toast.show();
 						saved = true;
 					} else if (eRowId.intValue() == 5) {
-						mDbAdapter.updateRecord(date, set, 10, wreRowId, description2);
+						mDbAdapter.updateRecord(date, set, 10, wreRowId,
+								description2);
 						mDbAdapter.updateRecord(date, rep, 11, wreRowId, null);
-						mDbAdapter.updateRecord(date, weight, 12, wreRowId, null);
+						mDbAdapter.updateRecord(date, weight, 12, wreRowId,
+								null);
 						toast.show();
 						saved = true;
 
 					} else if (eRowId.intValue() == 6) {
-						mDbAdapter.updateRecord(date, set, 13, wreRowId, description2);
+						mDbAdapter.updateRecord(date, set, 13, wreRowId,
+								description2);
 						mDbAdapter.updateRecord(date, rep, 14, wreRowId, null);
-						mDbAdapter.updateRecord(date, weight, 15, wreRowId, null);
+						mDbAdapter.updateRecord(date, weight, 15, wreRowId,
+								null);
 						toast.show();
 						saved = true;
 					}
@@ -464,22 +478,28 @@ public class ExerciseRecordEdit extends SherlockActivity {
 			} else {
 				if (set != -1 && rep != -1 && weight != -1) {
 					if (eRowId.intValue() == 4) {
-						mDbAdapter.createRecord(date, set, 7, wreRowId, description2);
+						mDbAdapter.createRecord(date, set, 7, wreRowId,
+								description2);
 						mDbAdapter.createRecord(date, rep, 8, wreRowId, null);
-						mDbAdapter.createRecord(date, weight, 9, wreRowId, null);
+						mDbAdapter
+								.createRecord(date, weight, 9, wreRowId, null);
 						toast.show();
 						saved = true;
 					} else if (eRowId.intValue() == 5) {
-						mDbAdapter.createRecord(date, set, 10, wreRowId, description2);
+						mDbAdapter.createRecord(date, set, 10, wreRowId,
+								description2);
 						mDbAdapter.createRecord(date, rep, 11, wreRowId, null);
-						mDbAdapter.createRecord(date, weight, 12, wreRowId, null);
+						mDbAdapter.createRecord(date, weight, 12, wreRowId,
+								null);
 						toast.show();
 						saved = true;
 
 					} else if (eRowId.intValue() == 6) {
-						mDbAdapter.createRecord(date, set, 13, wreRowId, description2);
+						mDbAdapter.createRecord(date, set, 13, wreRowId,
+								description2);
 						mDbAdapter.createRecord(date, rep, 14, wreRowId, null);
-						mDbAdapter.createRecord(date, weight, 15, wreRowId, null);
+						mDbAdapter.createRecord(date, weight, 15, wreRowId,
+								null);
 						toast.show();
 						saved = true;
 
@@ -487,11 +507,12 @@ public class ExerciseRecordEdit extends SherlockActivity {
 
 				}
 			}
+			c.close();
 			break;
 		case 7:
 			String setString2 = mSetText.getText().toString();
 			String repString2 = mRepText.getText().toString();
-			String description3 = mDescription.getText().toString();
+			String des3 = mDescription.getText().toString().trim();
 			double set2 = !TextUtils.isEmpty(setString2) ? Double
 					.parseDouble(setString2) : -1;
 			double rep2 = !TextUtils.isEmpty(repString2) ? Double
@@ -499,12 +520,14 @@ public class ExerciseRecordEdit extends SherlockActivity {
 			// create Query that will query for the name of the attribute
 			// and take in ExerciseId to replace in createRecord() method
 
+			String description3 = TextUtils.isEmpty(des3) ? null : des3;
 			c = mDbAdapter.fetchRecord(date, 16, wreRowId);
 
 			if (c != null && c.getCount() > 0) {
 				if (set2 != -1 && rep2 != -1) {
 
-					mDbAdapter.updateRecord(date, set2, 16, wreRowId, description3);
+					mDbAdapter.updateRecord(date, set2, 16, wreRowId,
+							description3);
 					mDbAdapter.updateRecord(date, rep2, 17, wreRowId, null);
 					toast.show();
 					saved = true;
@@ -513,17 +536,20 @@ public class ExerciseRecordEdit extends SherlockActivity {
 			} else {
 				if (set2 != -1 && rep2 != -1) {
 
-					mDbAdapter.createRecord(date, set2, 16, wreRowId, description3);
+					mDbAdapter.createRecord(date, set2, 16, wreRowId,
+							description3);
 					mDbAdapter.createRecord(date, rep2, 17, wreRowId, null);
 					toast.show();
 					saved = true;
 				}
 			}
+			c.close();
 			break;
 		case 8:
 			String minute2 = mMinuteText.getText().toString();
 			String second2 = mSecondText.getText().toString();
-			String description4 = mDescription.getText().toString();
+			String des4 = mDescription.getText().toString().trim();
+
 			double min2 = !TextUtils.isEmpty(minute2) ? Double
 					.parseDouble(minute2) : 0;
 			double sec2 = !TextUtils.isEmpty(second2) ? Double
@@ -533,12 +559,13 @@ public class ExerciseRecordEdit extends SherlockActivity {
 					+ (sec2 / 60.0);
 
 			// time
-
+			String description4 = TextUtils.isEmpty(des4) ? null : des4;
 			c = mDbAdapter.fetchRecord(date, 18, wreRowId);
 
 			if (c != null && c.getCount() > 0) {
 				if (savedTime2 != -1) {
-					mDbAdapter.updateRecord(date, savedTime2, 1, wreRowId, description4);
+					mDbAdapter.updateRecord(date, savedTime2, 1, wreRowId,
+							description4);
 					toast.show();
 					saved = true;
 				}
@@ -546,18 +573,20 @@ public class ExerciseRecordEdit extends SherlockActivity {
 				if (savedTime2 != -1) {
 
 					// time
-					mDbAdapter.createRecord(date, savedTime2, 18, wreRowId, description4);
+					mDbAdapter.createRecord(date, savedTime2, 18, wreRowId,
+							description4);
 					toast.show();
 					saved = true;
 				}
 			}
+			c.close();
 			break;
 		case 9:
 			String minute1 = mMinuteText.getText().toString();
 			String second1 = mSecondText.getText().toString();
 			String setString1 = mSetText.getText().toString();
 			String repString1 = mRepText.getText().toString();
-			String description5 = mDescription.getText().toString();
+			String des5 = mDescription.getText().toString().trim();
 
 			// time
 			double min1 = !TextUtils.isEmpty(minute1) ? Double
@@ -573,7 +602,7 @@ public class ExerciseRecordEdit extends SherlockActivity {
 					.parseDouble(setString1) : -1;
 			double rep1 = !TextUtils.isEmpty(repString1) ? Double
 					.parseDouble(repString1) : -1;
-
+			String description5 = TextUtils.isEmpty(des5) ? null : des5;
 			c = mDbAdapter.fetchRecord(date, 19, wreRowId);
 			// Cursor a = mDbAdapter.fetchAttribute("Time");
 			// long a_id =
@@ -586,7 +615,8 @@ public class ExerciseRecordEdit extends SherlockActivity {
 			// if(c!=null && c.getCount()>0 && d!=null && d.getCount()>0)
 			if (c != null && c.getCount() > 0) {
 				if (savedTime1 != -1 && set1 != -1 && rep1 != -1) {
-					mDbAdapter.updateRecord(date, savedTime1, 19, wreRowId, description5);
+					mDbAdapter.updateRecord(date, savedTime1, 19, wreRowId,
+							description5);
 					mDbAdapter.updateRecord(date, set1, 20, wreRowId, null);
 					mDbAdapter.updateRecord(date, rep1, 21, wreRowId, null);
 					toast.show();
@@ -595,7 +625,8 @@ public class ExerciseRecordEdit extends SherlockActivity {
 			} else {
 				if (savedTime1 != -1 && set1 != -1 && rep1 != -1) {
 					// time
-					mDbAdapter.createRecord(date, savedTime1, 19, wreRowId, description5);
+					mDbAdapter.createRecord(date, savedTime1, 19, wreRowId,
+							description5);
 					// set
 					mDbAdapter.createRecord(date, set1, 20, wreRowId, null);
 					// rep
@@ -604,6 +635,7 @@ public class ExerciseRecordEdit extends SherlockActivity {
 					saved = true;
 				}
 			}
+			c.close();
 			break;
 
 		}

@@ -1,22 +1,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/exercise_name"
+    android:layout_toRightOf="@+id/exercise_img"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/exercise_name"
-        android:layout_toRightOf="@+id/exercise_img"
-        android:orientation="horizontal" >
-        
+        android:layout_weight="0.14"
+        android:text="@string/date"
+        android:textSize="24sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.14"
-            android:textSize="24sp"
-            android:text="Date:" />
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="#000099"
+        android:textSize="24sp" />
 
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="24sp" />
-    </LinearLayout>
+</LinearLayout>

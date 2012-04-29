@@ -30,10 +30,9 @@ public class RecordView extends SherlockActivity {
 
 	private static final int DELETE_ID = Menu.FIRST;
 
-	
 	public static final String LAUNCH_RECORD = "launch_record_from_view";
 	public static final String DATE_REQUEST = "date_request";
-	
+
 	private DatabaseAdapter mDbAdapter;
 	private TextView mDateText;
 	private TextView mValueText;
@@ -45,15 +44,13 @@ public class RecordView extends SherlockActivity {
 	private TextView mWeightText;
 	private TextView mNameText;
 	private TextView mDescription;
+	private TextView mDes;
 	private ImageView image;
-	// private Long mRowId;
 	private Long wreRowId;
 	private Long eRowId;
 	private String date;
 	private String name;
 	private Boolean empty = false;
-
-
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -132,6 +129,7 @@ public class RecordView extends SherlockActivity {
 				mMinText = (TextView) findViewById(R.id.min);
 				mSecText = (TextView) findViewById(R.id.sec);
 				mDescription = (TextView) findViewById(R.id.description);
+				mDes = (TextView) findViewById(R.id.des);
 			} else {
 				setContentView(R.layout.no_records);
 				empty = true;
@@ -150,7 +148,7 @@ public class RecordView extends SherlockActivity {
 				mRepText = (TextView) findViewById(R.id.value2);
 				mWeightText = (TextView) findViewById(R.id.value3);
 				mDescription = (TextView) findViewById(R.id.description);
-
+				mDes = (TextView) findViewById(R.id.des);
 			} else {
 				setContentView(R.layout.no_records);
 				empty = true;
@@ -167,7 +165,7 @@ public class RecordView extends SherlockActivity {
 				mSetText = (TextView) findViewById(R.id.value);
 				mRepText = (TextView) findViewById(R.id.value2);
 				mDescription = (TextView) findViewById(R.id.description);
-
+				mDes = (TextView) findViewById(R.id.des);
 			} else {
 				setContentView(R.layout.no_records);
 				empty = true;
@@ -176,7 +174,6 @@ public class RecordView extends SherlockActivity {
 
 			break;
 		case 8:
-			Log.v(TAG, "in 8");
 			if (records.getCount() > 0) {
 				setContentView(R.layout.stretch);
 				image = (ImageView) findViewById(R.id.exercise_img);
@@ -185,7 +182,7 @@ public class RecordView extends SherlockActivity {
 				mMinText = (TextView) findViewById(R.id.min);
 				mSecText = (TextView) findViewById(R.id.sec);
 				mDescription = (TextView) findViewById(R.id.description);
-
+				mDes = (TextView) findViewById(R.id.des);
 			} else {
 				setContentView(R.layout.no_records);
 				empty = true;
@@ -203,7 +200,7 @@ public class RecordView extends SherlockActivity {
 				mSetText = (TextView) findViewById(R.id.value);
 				mRepText = (TextView) findViewById(R.id.value2);
 				mDescription = (TextView) findViewById(R.id.description);
-
+				mDes = (TextView) findViewById(R.id.des);
 			} else {
 				setContentView(R.layout.no_records);
 				empty = true;
@@ -221,10 +218,12 @@ public class RecordView extends SherlockActivity {
 		// suggested by alex.
 		// changed options menu to XML
 		if (empty) {
-			getSupportMenuInflater().inflate(R.menu.record_view_options_menu, menu);
+			getSupportMenuInflater().inflate(R.menu.record_view_options_menu,
+					menu);
 		} else {
-		
-			getSupportMenuInflater().inflate(R.menu.record_delete_options_menu, menu);
+
+			getSupportMenuInflater().inflate(R.menu.record_delete_options_menu,
+					menu);
 		}
 
 		return super.onCreateOptionsMenu(menu);
@@ -235,7 +234,7 @@ public class RecordView extends SherlockActivity {
 		switch (item.getItemId()) {
 		case R.id.delete_record:
 			showDialog(0);
-			
+
 			return true;
 		case R.id.add_record:
 			createRecord();
@@ -247,6 +246,7 @@ public class RecordView extends SherlockActivity {
 
 		return super.onOptionsItemSelected(item);
 	}
+
 	protected Dialog onCreateDialog(int id) {
 		switch (id) {
 		case 0:
@@ -269,6 +269,7 @@ public class RecordView extends SherlockActivity {
 		}
 		return null;
 	}
+
 	public void createRecord() {
 		Cursor exercise_id = mDbAdapter.fetchExercisebyWRE(wreRowId);
 		long e_id = exercise_id
@@ -284,18 +285,14 @@ public class RecordView extends SherlockActivity {
 		startActivityForResult(i, ACTIVITY_CREATE);
 	}
 
-	/*@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// suggested by alex.
-		// changed options menu to XML
-		switch (item.getItemId()) {
-		case R.id.add_workout:
-			createWorkout();
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}*/
+	/*
+	 * @Override public boolean onOptionsItemSelected(MenuItem item) { //
+	 * suggested by alex. // changed options menu to XML switch
+	 * (item.getItemId()) { case R.id.add_workout: createWorkout(); return true;
+	 * } return super.onOptionsItemSelected(item); }
+	 */
 
+	@SuppressWarnings("null")
 	private void populateFields() {
 		Cursor records = mDbAdapter.fetchAllRecordAttrByDate(date, wreRowId);
 		startManagingCursor(records);
@@ -307,6 +304,7 @@ public class RecordView extends SherlockActivity {
 		case 2:
 		case 3:
 			if (records.getCount() > 0) {
+				int count = 0;
 				while (records.isAfterLast() == false) {
 					long rowId = records.getLong(records
 							.getColumnIndexOrThrow(RecordTable.COLUMN_ID));
@@ -336,38 +334,45 @@ public class RecordView extends SherlockActivity {
 										.getColumnIndexOrThrow(RecordTable.COLUMN_VALUE)));
 						record.close();
 					}
-					
-					String description = records.getString(records
-							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
-					if(description != null)
-					{
-						mDescription.setText(records.getString(records
-							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
+
+					String description = records
+							.getString(records
+									.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
+					if (description != null) {
+						mDescription
+							.setText(records.getString(records
+										.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
+						count++;
+
 					}
 					records.moveToNext();
 				}
+				
+				if(count == 0) {
+					Log.v(TAG,"count: " + count);
+					mDes.setText("");
+				}
+				
 				mDateText.setText(date);
 				mNameText.setText(name);
-				if(eRowId.intValue() == 1)
-				{
+				if (eRowId.intValue() == 1) {
 					image.setImageResource(R.drawable.image_cardio_running);
 
-				} else if (eRowId.intValue() == 2)
-				{
+				} else if (eRowId.intValue() == 2) {
 					image.setImageResource(R.drawable.image_cardio_swimming);
 
-				} else if(eRowId.intValue() == 3)
-				{
+				} else if (eRowId.intValue() == 3) {
 					image.setImageResource(R.drawable.image_cardio_biking);
 
 				}
-					
+
 			}
 			break;
 		case 4:
 		case 5:
 		case 6:
 			if (records.getCount() > 0) {
+				int count2 = 0;
 				while (records.isAfterLast() == false) {
 					long rowId1 = records.getLong(records
 							.getColumnIndexOrThrow(RecordTable.COLUMN_ID));
@@ -387,22 +392,30 @@ public class RecordView extends SherlockActivity {
 						mWeightText.setText(String.valueOf(value1));
 						record1.close();
 					}
-					String description2 = records.getString(records
+					String description2 = records
+					.getString(records
 							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
-					if(description2 != null)
-					{
-						mDescription.setText(records.getString(records
-							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
-					}
-					records.moveToNext();
-				}
+			if (description2 != null) {
+				mDescription
+					.setText(records.getString(records
+								.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
+				count2++;
+
+			}
+			records.moveToNext();
+		}
+		
+		if(count2 == 0) {
+			Log.v(TAG,"count: " + count2);
+			mDes.setText("");
+		}
+		
 				mDateText.setText(date);
 				mNameText.setText(name);
-				if(eRowId.intValue() == 4) {
+				if (eRowId.intValue() == 4) {
 					image.setImageResource(R.drawable.image_st_shoulderpress);
 
-				} else if(eRowId.intValue() == 5 || eRowId.intValue() == 6)
-				{
+				} else if (eRowId.intValue() == 5 || eRowId.intValue() == 6) {
 					image.setImageResource(R.drawable.image_st_bicepcurl);
 
 				}
@@ -411,6 +424,7 @@ public class RecordView extends SherlockActivity {
 			break;
 		case 7:
 			if (records.getCount() > 0) {
+				int count3 = 0;
 				while (records.isAfterLast() == false) {
 					long rowId3 = records.getLong(records
 							.getColumnIndexOrThrow(RecordTable.COLUMN_ID));
@@ -427,15 +441,22 @@ public class RecordView extends SherlockActivity {
 						mRepText.setText(String.valueOf(value3));
 						record3.close();
 					}
-					String description3 = records.getString(records
+					String description3 = records
+					.getString(records
 							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
-					if(description3 != null)
-					{
-						mDescription.setText(records.getString(records
-							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
-					}
-					records.moveToNext();
-				}
+			if (description3 != null) {
+				mDescription
+					.setText(records.getString(records
+								.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
+				count3++;
+
+			}
+			records.moveToNext();
+		}
+		
+		if(count3 == 0) {
+			mDes.setText("");
+		}
 				mDateText.setText(date);
 				mNameText.setText(name);
 				image.setImageResource(R.drawable.image_warmup_jumpingjack);
@@ -443,6 +464,7 @@ public class RecordView extends SherlockActivity {
 			}
 			break;
 		case 8:
+			int count4 = 0;
 			if (records.getCount() > 0) {
 				long rowId4 = records.getLong(records
 						.getColumnIndexOrThrow(RecordTable.COLUMN_ID));
@@ -459,17 +481,26 @@ public class RecordView extends SherlockActivity {
 				mDateText.setText(date);
 				mNameText.setText(name);
 				image.setImageResource(R.drawable.image_warmup_stretching);
-				String description4 = records.getString(records
+				String description4 = records
+				.getString(records
 						.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
-				if(description4 != null)
-				{
-					mDescription.setText(records.getString(records
-						.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
-				}
-			}
+		if (description4 != null) {
+			mDescription
+				.setText(records.getString(records
+							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
+			count4++;
+
+		}
+		records.moveToNext();
+	}
+	
+	if(count4 == 0) {
+		mDes.setText("");
+	}
 			break;
 		case 9:
 			if (records.getCount() > 0) {
+				int count5 = 0;
 				while (records.isAfterLast() == false) {
 					long rowId2 = records.getLong(records
 							.getColumnIndexOrThrow(RecordTable.COLUMN_ID));
@@ -508,15 +539,22 @@ public class RecordView extends SherlockActivity {
 						mRepText.setText(String.valueOf(value2));
 						record2.close();
 					}
-					String description5 = records.getString(records
+					String description5 = records
+					.getString(records
 							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
-					if(description5 != null)
-					{
-						mDescription.setText(records.getString(records
-							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
-					}
-					records.moveToNext();
-				}
+			if (description5 != null) {
+				mDescription
+					.setText(records.getString(records
+								.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
+				count5++;
+
+			}
+			records.moveToNext();
+		}
+		
+		if(count5 == 0) {
+			mDes.setText("");
+		}
 				mDateText.setText(date);
 				mNameText.setText(name);
 				image.setImageResource(R.drawable.image_warmup_jumprope);

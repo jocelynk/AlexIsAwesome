@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:layout_weight="1"
-            android:text="Enter Workout Routine"
+            android:text="@string/enter_workout"
             android:textSize="22sp" />
 
         <EditText
@@ -24,9 +24,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:layout_weight="1"
-            android:hint="Name"
+            android:hint="@string/name"
             android:inputType="text"
-            android:maxLength="30" />
+            android:maxLength="13" />
 
         <EditText
             android:id="@+id/description"
@@ -35,9 +35,9 @@
             android:layout_marginBottom="15dp"
             android:layout_weight="1"
             android:gravity="top"
-            android:hint="Description"
+            android:hint="@string/description"
             android:lines="2"
-            android:maxLength="50"
+            android:maxLength="20"
             android:scrollbars="vertical" />
 
         <LinearLayout
@@ -49,13 +49,12 @@
                 android:id="@+id/cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cancel" />
+                android:text="@string/cancel" />
 
             <Button
                 android:id="@+id/confirm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/description"
                 android:text="@string/confirm" />
         </LinearLayout>
     </LinearLayout>

@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/exercise_img"
-        android:textSize="36sp" />
+        android:textSize="30sp" />
 
     <include layout="@layout/date" />
 
@@ -32,22 +32,24 @@
             android:id="@+id/distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="14dp"
-            android:text="Distance: "
+            android:layout_marginLeft="15dp"
+            android:text="@string/distance"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
             android:paddingRight="5dp"
+            android:textColor="#000099"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/mi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="mi"
+            android:text="@string/mi"
             android:textSize="24sp" />
     </LinearLayout>
 
@@ -65,21 +67,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="15dp"
-            android:text="Time: "
+            android:text="@string/time"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/hr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
             android:paddingRight="5dp"
+            android:textColor="#000099"
             android:textSize="24sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:text="hr "
+            android:text="@string/hr"
             android:textSize="24sp" />
 
         <TextView
@@ -87,13 +91,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingRight="5dp"
+            android:textColor="#000099"
             android:textSize="24sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:text="min "
+            android:text="@string/min"
             android:textSize="24sp" />
 
         <TextView
@@ -101,12 +106,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingRight="5dp"
+            android:textColor="#000099"
             android:textSize="24sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="sec"
+            android:text="@string/sec"
             android:textSize="24sp" />
     </LinearLayout>
 
@@ -119,15 +125,17 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/description"
+            android:id="@+id/des"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Description: "
+            android:text="@string/description"
             android:textSize="24sp" />
 
         <TextView
+            android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#000099"
             android:textSize="24sp" />
     </LinearLayout>
 
