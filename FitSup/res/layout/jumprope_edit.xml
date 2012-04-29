@@ -137,7 +137,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="15dp"
-            android:text="@string/description"
+            android:text="@string/comment"
             android:textSize="20sp" />
 
         <EditText
@@ -148,7 +148,7 @@
             android:layout_marginRight="15dp"
             android:layout_marginTop="15dp"
             android:layout_weight="1"
-            android:hint="@string/description"
+            android:hint="@string/comment"
             android:inputType="textMultiLine"
             android:lines="3"
             android:maxLength="50"

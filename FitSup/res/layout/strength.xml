@@ -104,7 +104,7 @@
             android:id="@+id/des"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/description"
+            android:text="@string/comment"
             android:textSize="24sp" />
 
         <TextView

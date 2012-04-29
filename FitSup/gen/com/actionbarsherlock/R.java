@@ -1014,6 +1014,7 @@ containing a value of this type.
         public static final int change_date=0x7f090025;
         public static final int choose_category=0x7f090019;
         public static final int choose_exercise=0x7f09001b;
+        public static final int comment=0x7f090031;
         public static final int confirm=0x7f090014;
         public static final int count=0x7f09002e;
         public static final int date=0x7f090023;
