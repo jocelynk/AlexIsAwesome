@@ -340,19 +340,19 @@ public class RecordView extends SherlockActivity {
 									.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
 					if (description != null) {
 						mDescription
-							.setText(records.getString(records
+								.setText(records.getString(records
 										.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
 						count++;
 
 					}
 					records.moveToNext();
 				}
-				
-				if(count == 0) {
-					Log.v(TAG,"count: " + count);
+
+				if (count == 0) {
+					Log.v(TAG, "count: " + count);
 					mDes.setText("");
 				}
-				
+
 				mDateText.setText(date);
 				mNameText.setText(name);
 				if (eRowId.intValue() == 1) {
@@ -393,23 +393,23 @@ public class RecordView extends SherlockActivity {
 						record1.close();
 					}
 					String description2 = records
-					.getString(records
-							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
-			if (description2 != null) {
-				mDescription
-					.setText(records.getString(records
-								.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
-				count2++;
+							.getString(records
+									.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
+					if (description2 != null) {
+						mDescription
+								.setText(records.getString(records
+										.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
+						count2++;
 
-			}
-			records.moveToNext();
-		}
-		
-		if(count2 == 0) {
-			Log.v(TAG,"count: " + count2);
-			mDes.setText("");
-		}
-		
+					}
+					records.moveToNext();
+				}
+
+				if (count2 == 0) {
+					Log.v(TAG, "count: " + count2);
+					mDes.setText("");
+				}
+
 				mDateText.setText(date);
 				mNameText.setText(name);
 				if (eRowId.intValue() == 4) {
@@ -442,21 +442,21 @@ public class RecordView extends SherlockActivity {
 						record3.close();
 					}
 					String description3 = records
-					.getString(records
-							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
-			if (description3 != null) {
-				mDescription
-					.setText(records.getString(records
-								.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
-				count3++;
+							.getString(records
+									.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
+					if (description3 != null) {
+						mDescription
+								.setText(records.getString(records
+										.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
+						count3++;
 
-			}
-			records.moveToNext();
-		}
-		
-		if(count3 == 0) {
-			mDes.setText("");
-		}
+					}
+					records.moveToNext();
+				}
+
+				if (count3 == 0) {
+					mDes.setText("");
+				}
 				mDateText.setText(date);
 				mNameText.setText(name);
 				image.setImageResource(R.drawable.image_warmup_jumpingjack);
@@ -464,8 +464,9 @@ public class RecordView extends SherlockActivity {
 			}
 			break;
 		case 8:
-			int count4 = 0;
+
 			if (records.getCount() > 0) {
+				int count4 = 0;
 				long rowId4 = records.getLong(records
 						.getColumnIndexOrThrow(RecordTable.COLUMN_ID));
 				Cursor record4 = mDbAdapter.fetchAttributeOfRecord(rowId4);
@@ -481,22 +482,25 @@ public class RecordView extends SherlockActivity {
 				mDateText.setText(date);
 				mNameText.setText(name);
 				image.setImageResource(R.drawable.image_warmup_stretching);
-				String description4 = records
-				.getString(records
+				String description4 = records.getString(records
 						.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
-		if (description4 != null) {
-			mDescription
-				.setText(records.getString(records
-							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
-			count4++;
+				if (description4 != null) {
+					mDescription
+							.setText(records.getString(records
+									.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
+					count4++;
 
-		}
-		records.moveToNext();
-	}
-	
-	if(count4 == 0) {
-		mDes.setText("");
-	}
+				}
+				records.moveToNext();
+				if (count4 == 0) {
+					mDes.setText("");
+				}
+
+				mDateText.setText(date);
+				mNameText.setText(name);
+				image.setImageResource(R.drawable.image_warmup_stretching);
+			}
+
 			break;
 		case 9:
 			if (records.getCount() > 0) {
@@ -540,21 +544,21 @@ public class RecordView extends SherlockActivity {
 						record2.close();
 					}
 					String description5 = records
-					.getString(records
-							.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
-			if (description5 != null) {
-				mDescription
-					.setText(records.getString(records
-								.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
-				count5++;
+							.getString(records
+									.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION));
+					if (description5 != null) {
+						mDescription
+								.setText(records.getString(records
+										.getColumnIndexOrThrow(RecordTable.COLUMN_DESCRIPTION)));
+						count5++;
 
-			}
-			records.moveToNext();
-		}
-		
-		if(count5 == 0) {
-			mDes.setText("");
-		}
+					}
+					records.moveToNext();
+				}
+
+				if (count5 == 0) {
+					mDes.setText("");
+				}
 				mDateText.setText(date);
 				mNameText.setText(name);
 				image.setImageResource(R.drawable.image_warmup_jumprope);
